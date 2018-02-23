@@ -1,0 +1,11 @@
+【v2r3】【SVP-HOST】定制化SUSE图形界面的个别文字显示内容
+
+问题来源:
+wangxiaorou
+
+描述
+【描述】：在SUSE V2R3的SVP-HOST版本中，使用图形界面登录时，窗口中显示的文字以及弹窗中的文字不符合下游对于“系统安全”的要求。需要把相关的SUSE字样修改为Euler，把验证密码时，因用户不存在而提示的"User not known to the underlying authentication module"修改为"Authentication failure"。
+【状态】：已制作对应的patch，自验结束，等待patch合入
+【解决】：SUSE字样改为Euler的方案，需要修改/etc/SuSE-release中的SUSE为Euler
+修改提示的方案，修改pam包libpam/pam_strerror.c文件中的case PAM_USER_UNKNOWN分支对应的代码，具体见相关patch
+=============================================================================================================================
